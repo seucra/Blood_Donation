@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Donate Blood</title>
+    <style>
+        /* General Styling with Fade-in Animation */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        /* Fade-in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #f2e8e8;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 25px;
+            animation: slideDown 1s ease-in-out;
+        }
+
+        /* Slide down effect */
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .navbar h2 { color: rgb(242, 14, 41); margin: 0; }
+        .navbar nav a {
+            color: rgb(8, 1, 1);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        .navbar nav a:hover { color: red; }
+        .navbar nav a:last-child {
+            background: #e4210f;
+            padding: 8px 12px;
+            border-radius: 5px;
+            color: white;
+            transition: background 0.3s ease-in-out;
+        }
+        .navbar nav a:last-child:hover { background: darkred; }
+
+        /* Container with Fade-in Animation */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            animation: slideUp 1s ease-in-out;
+        }
+
+        /* Slide up effect */
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .form-control:focus {
+            box-shadow: 0px 0px 8px rgba(242, 14, 41, 0.5);
+            outline: none;
+        }
+
+        /* Animated Submit Button */
+        .btn-primary {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: transform 0.3s ease-in-out, background 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: darkred;
+            transform: scale(1.1);
+        }
+
+        /* Footer with Fade-in Effect */
+        .footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 250px;
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <h2>Blood Bank & Donation</h2>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="why_donate.html">Why Donate Blood</a>
+            <a href="https://www.google.com/maps/@21.2030614,79.075803,13z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D"target="_blank" class="map-btn">Find Blood Banks</a>
+            <a href="become_donor.html" id="bl">Become A Donor</a>
+            <a href="need_blood.html">Need Blood</a>
+            <a href="Contact.html">Contact Us</a>
+        </nav>
+    </div>
+
+    <!-- Donation Form -->
+    <div class="container">
+        <h1>Donate Blood</h1>
+        <form id="donorForm">
+            <div class="form-group">
+                <label>Full Name<span style="color:red">*</span></label>
+                <input type="text" name="fullname" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Mobile Number<span style="color:red">*</span></label>
+                <input type="text" name="mobileno" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Email Id</label>
+                <input type="email" name="emailid" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Age<span style="color:red">*</span></label>
+                <input type="number" name="age" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Blood Group<span style="color:red">*</span></label>
+                <select name="blood" class="form-control" required>
+                    <option value="" selected disabled>Select</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>TEAM DETAILS:</p>
+        <p>SAKSHI BANSOD-TEAM LEAD</p>
+        <p>LAKSHYA WALURKAR-TEAM MEMBER</p>
+    </footer>
+
+</body>
+</html>

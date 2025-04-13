@@ -1,0 +1,74 @@
+-- Create the blood_donation database
+CREATE DATABASE blood_donation;
+USE blood_donation;
+
+-- Create the donors table
+CREATE TABLE donors (
+    donor_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    age INT NOT NULL,
+    blood_type VARCHAR(5) NOT NULL,
+    contact_number VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    zip_code VARCHAR(10) NOT NULL,
+    last_donation_date DATE
+);
+
+-- Create the recipients table
+CREATE TABLE recipients (
+    recipient_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    age INT NOT NULL,
+    blood_type VARCHAR(5) NOT NULL,
+    contact_number VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    hospital_name VARCHAR(255) NOT NULL,
+    doctor_name VARCHAR(100),
+    urgency_level ENUM('Low', 'Medium', 'High') NOT NULL,
+    request_date DATE NOT NULL
+);
+
+-- Create the blood_banks table
+CREATE TABLE blood_banks (
+    bank_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    zip_code VARCHAR(10) NOT NULL,
+    contact_number VARCHAR(15) NOT NULL,
+    available_blood_types VARCHAR(255) NOT NULL,
+    latitude DECIMAL(9,6),
+    longitude DECIMAL(9,6)
+);
+
+-- Create the donations table (linked to donors)
+CREATE TABLE donations (
+    donation_id INT AUTO_INCREMENT PRIMARY KEY,
+    donor_id INT NOT NULL,
+    donation_date DATE NOT NULL,
+    blood_volume_ml INT NOT NULL,
+    FOREIGN KEY (donor_id) REFERENCES donors(donor_id) ON DELETE CASCADE
+);
+
+-- Create the contact_requests table
+CREATE TABLE contact_requests (
+    contact_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(15),
+    message TEXT NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+	select * from donors;
+    ALTER TABLE donors 
+ADD COLUMN password VARCHAR(255) NOT NULL;
+ALTER TABLE donors 
+ADD COLUMN email VARCHAR(255) NOT NULL ;

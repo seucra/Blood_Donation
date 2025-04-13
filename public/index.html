@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blood Donation - Signup & Login</title>
+        <style>
+            /* Full page and body styling */
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            /* Video Background Styling */
+            .video-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                z-index: -1;
+            }
+
+            video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* Form Container Styling */
+            .container {
+                width: 500px;
+                margin: auto;
+                background: rgba(255, 255, 255, 0.9);  /* Slightly transparent white */
+                padding: 40px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                margin-top: 100px;
+                position: relative;
+                z-index: 1;
+            }
+
+            input, button, select {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                background-color: red;
+                color: white;
+                cursor: pointer;
+                border: none;
+                transition: background 0.3s;
+            }
+
+            button:hover {
+                background-color: darkred;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            /* Link Styling */
+            a {
+                color: #007BFF;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="backgroundlogin.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="container" id="signupForm">
+        <h2>Donor Sign Up</h2>
+        <form id="signupFormElement">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="number" name="age" placeholder="Age" required>
+            <input type="text" name="blood_type" placeholder="Blood Type (e.g., O+)" required>
+            <input type="text" name="contact_number" placeholder="Contact Number" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="state" placeholder="State" required>
+            <input type="text" name="zip_code" placeholder="Zip Code" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="container hidden" id="loginForm">
+        <h2>Login</h2>
+        <form id="loginFormElement">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>New user? <a href="" onclick="showSignup()">Sign Up</a></p>
+    </div>
+
+    <script>
+        // Form toggle functions
+        function showLogin() {
+            document.getElementById('signupForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+
+        function showSignup() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('signupForm').classList.remove('hidden');
+            return false;
+        }
+
+        // Signup Form Submission (single event listener)
+        document.getElementById('signupFormElement').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch('https://your-backend-url.com/api/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(formData.entries()))
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(result.message);
+                    if (result.success) {
+                        showLogin();
+                    }
+                } else {
+                    alert('Server error. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Network error. Please try again.');
+            }
+        });
+
+        // Login Form Submission (single event listener)
+        document.getElementById('loginFormElement').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch('https://your-backend-url.com/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(formData.entries()))
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        window.location.href = "Home.html";
+                    } else {
+                        alert('Invalid credentials. Please try again.');
+                    }
+                } else {
+                    alert('Server error. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Network error. Please check your connection.');
+            }
+        });
+    </script>
+
+    </body>
+    </html>

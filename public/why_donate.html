@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 25px;
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: slideDown 1s ease-in-out forwards;
+        }
+        .navbar h2 {
+            margin: 0;
+            color: rgb(242, 14, 41);
+        }
+        .navbar nav a {
+            color: rgb(8, 1, 1);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hover Effect */
+        .navbar nav a:hover {
+            background: #ff6f61;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Active Page Styling */
+        .navbar nav a.active {
+            background: #e4210f;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Main Section */
+        .content {
+            margin: 50px auto;
+            width: 80%;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-in-out forwards 0.5s;
+        }
+
+        .content h2 {
+            color: #222;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .content img {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards 0.8s;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            /* position: fixed; */
+            bottom: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease-in-out forwards 1s;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #why{
+        position: relative;
+        right: 470px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <h2>Blood Bank & Donation</h2>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="why_donate.html">Why Donate Blood</a>
+            <a href="https://www.google.com/maps/@21.2030614,79.075803,13z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D"target="_blank" class="map-btn">Find Blood Banks</a> 
+            <a href="become_donor.html" id="bl">Become A Donor</a>
+            <a href="need_blood.html">Need Blood</a>
+            <a href="Contact.html" class="active">Contact Us</a> <!-- Marked as active -->
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <section class="content">
+            <h1 id="why">Why is it Important to Donate Bl</h1>
+            <p>About <strong>328 million people</strong> currently live in the U.S. Each year, approximately <strong>6.8 million people</strong> in the U.S. donate blood. Annually, this adds up to about <strong>13.6 million units of whole blood</strong> collected for donation in the U.S. The <strong>Red Cross</strong> provides about 40% of the nation’s blood and blood cell components to donors. Your blood donations are used for patients in need of surgery, cancer treatment, and transfusions for blood loss from traumatic injuries. 
+            <br>Want to know more? Visit the <a href="#">Facts About Blood Supply</a> page.</p>
+        
+            <h2 id="why">Why Cancer Patients Need Blood ?</h2>
+            <p>For cancer patients, blood transfusions help replenish platelets lost during chemo or radiation therapy. Blood cell production, which occurs in the bone marrow, is often at risk. This can lead to chronic diseases, affecting organs like the kidneys, spleen, and liver.</p>
+        
+            <h2>Did You Know?</h2>
+            <h3>One blood of Diversity in the Blood Supply</h2>
+            <p>Diversity in the blood supply is essential. Rare blood types are often found among people with shared ancestral origins. Visit the <a href="#">Blood and Diversity</a> page for more information.</p>
+        
+            <h2 id="why">Why CMV Negative Blood is Important?</h2>
+            <p>CMV (Cytomegalovirus) is a flu-like virus that affects <strong>85% of adults</strong> by age 40. CMV-negative blood is used for newborns, premature babies, and immune-compromised adults due to its reduced risk of infection.</p>
+        
+            <h2 id="why">Blood Donation Types</h2>
+            <p style="margin-right: 700px;">Blood donations can yield a variety of blood products, including:</p>
+            <h4 style="margin-right: 800px;">Red cells</h4>
+            <h4 style="margin-right: 800px;">plates</h4>
+            <h4 style="margin-right: 800px;">plasma</h4>
+        </div>
+        
+        <img src="blood.png" alt="Blood " id="blood-img" style="width: 300px; height: 200px; margin-left: 700px; margin-top: -200px;">?
+    </div>
+
+
+            
+        
+            <h2 style="margin-right: 900px;">Whole Blood Donation vs<br> Power Red Donation</h2>
+            <p><strong>Whole blood donation</strong> includes all blood components: red blood cells, white blood cells, platelets, and plasma. It is used to help patients with cancer, blood disorders, and trauma injuries.</p>
+            <p><strong>Power Red donation</strong> allows donors to give two units of red blood cells in one appointment. This method is more efficient, returning the other blood components to the donor.</p>
+        
+            <h2>Platelet Donation vs. Plasma Donation</h2>
+            <h3>Platelet Donation</h3>
+            <p>Platelets help with blood clotting. During platelet donation, blood is drawn from one arm, separated, and returned through the other arm. Platelets are vital for cancer and trauma patients.</p>
+        
+            <h3>Plasma Donation</h3>
+            <p>Plasma donation, or plasmapheresis, extracts plasma from the blood and returns the other components. Plasma helps treat severe burns, cancer, and life-threatening conditions.</p>
+        
+            <p>The <strong>Red Cross</strong> encourages donors with <strong>AB blood type</strong> to donate plasma, as they are universal plasma donors. One donation provides up to <strong>four units of plasma</strong> for patients in need.</p>
+        
+            <p>As you can see, blood donation is vital. There is no substitute for blood, and it cannot be manufactured. Every day, blood donors help patients of all ages and backgrounds.</p>
+        
+        </div>
+        
+            <img src="_107317099_blooddonor976.jpg" alt="Blood Donation">
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <div class="footer">
+        <p>TEAM DETAILS:</p>
+        <p>SAKSHI BANSOD-TEAM LEAD</p>
+        <p>LAKSHYA WALURKAR-TEAM MEMBER</p>
+    </div>
+
+</body>
+<script>
+   // let p = fetch("/umang/apisetu/dept/eraktkoshapi/ws1/stocknearby")
+   // p.then((response))=>{()=> return response.json    }//
+   
+</script>
+</html>

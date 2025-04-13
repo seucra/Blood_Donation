@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Need Blood</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h2 {
+            margin: 0;
+            color: rgb(242, 14, 41);
+        }
+
+        .navbar nav a {
+            color: black;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hover Effect */
+        .navbar nav a:hover {
+            background: #ff6f61;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Active Page Styling */
+        .navbar nav a.active {
+            background: #e4210f;
+            color: white;
+        }
+
+        /* Form Container */
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards 0.3s;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Search Results */
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        .donor-card {
+            padding: 10px;
+            border-radius: 5px;
+            background: #f0f0f0;
+            margin-bottom: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .donor-card:hover {
+            transform: scale(1.02);
+        }
+        /* Footer */
+        .footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 400px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <h2>Blood Bank & Donation</h2>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="why_donate.html">Why Donate Blood</a>
+            <a href="https://www.google.com/maps/@21.2030614,79.075803,13z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D"target="_blank" class="map-btn">Find Blood Banks</a>
+            <a href="become_donor.html" id="bl">Become A Donor</a>
+            <a href="need_blood.html" class="active">Need Blood</a> <!-- Marked as active -->
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+
+    <!-- Blood Request Form -->
+    <div class="container">
+        <h1>Need Blood</h1>
+        <form id="needblood">
+            <div class="form-group">
+                <label for="bloodGroup">Blood Group<span style="color:red">*</span></label>
+                <select id="bloodGroup" required>
+                    <option value="" selected disabled>Select</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason, why do you need blood?<span style="color:red">*</span></label>
+                <textarea id="reason" required></textarea>
+            </div>
+            <button type="button" onclick="searchBlood()">Search</button>
+        </form>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const donors = [
+            { name: "John Doe", bloodGroup: "A+", contact: "1234567890", age: 30, location: "New York" },
+            { name: "Jane Smith", bloodGroup: "B+", contact: "0987654321", age: 25, location: "Los Angeles" },
+            { name: "Michael Brown", bloodGroup: "O+", contact: "1122334455", age: 35, location: "Chicago" },
+            { name: "Emily Davis", bloodGroup: "AB-", contact: "2233445566", age: 28, location: "Houston" }
+        ];
+
+        function searchBlood() {
+            var bloodGroup = document.getElementById("bloodGroup").value;
+            var reason = document.getElementById("reason").value;
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+
+            if (bloodGroup && reason) {
+                var filteredDonors = donors.filter(donor => donor.bloodGroup === bloodGroup);
+                if (filteredDonors.length > 0) {
+                    filteredDonors.forEach(donor => {
+                        resultsDiv.innerHTML += `<div class="donor-card">
+                                                     <p><strong>Name:</strong> ${donor.name} <br>
+                                                     <strong>Blood Group:</strong> ${donor.bloodGroup} <br>
+                                                     <strong>Contact:</strong> ${donor.contact} <br>
+                                                     <strong>Age:</strong> ${donor.age} <br>
+                                                     <strong>Location:</strong> ${donor.location}</p>
+                                                 </div>`;
+                    });
+                } else {
+                    resultsDiv.innerHTML = "<p>No donors found for this blood group.</p>";
+                }
+                resultsDiv.style.display = "block";
+            } else {
+                alert("Please fill all required fields.");
+            }
+        }
+    </script>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>TEAM DETAILS:</p>
+        <p>SAKSHI BANSOD-TEAM LEAD</p>
+        <p>LAKSHYA WALURKAR-TEAM MEMBER</p>
+    </footer>
+
+</body>
+</html>

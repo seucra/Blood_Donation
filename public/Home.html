@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank & Donor Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: url('cell.mp4') no-repeat center center/cover;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h2 {
+            margin: 0;
+            color: rgb(242, 14, 41);
+        }
+        .navbar nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar nav a:hover {
+            background: #ff6f61;
+            color: white;
+        }
+        .navbar nav a:last-child {
+            background: #e4210f;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-section, .donor-section, .btn, img {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .info-section { animation-delay: 0.3s; }
+        .donor-section { animation-delay: 0.6s; }
+        img { animation-delay: 0.9s; }
+        .btn { animation-delay: 1.2s; }
+
+        /* Sections */
+        .info-section, .donor-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        /* Info Boxes */
+        .info-box, .donor-card {
+            background: rgb(255, 255, 255);
+            padding: 20px;
+            width: 30%;
+            min-width: 250px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(204, 27, 27, 0.2);
+        }
+
+        /* Donor Card */
+        .donor-card img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #7FB3D5;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #f00d0d;
+        }
+        #bl{
+            text-decoration: none;
+        }
+            /* Footer */
+            .footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;  /* Behind all content */
+            overflow: hidden;
+        }
+
+        /* Video styling */
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the entire area */
+        }
+
+        /* Smooth fade-in animation for content */
+        .container {
+            width: 500px;
+            margin: auto;
+            background: rgb(255, 253, 253);
+            padding: 40px;
+            box-shadow: 0px 0px 10px rgba(59, 27, 27, 0.1);
+            border-radius: 20px;
+            margin-top: 250px;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 1; /* Above the video */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Video background -->
+<div class="video-container">
+    <video autoplay loop muted playsinline>
+        <source src="cell.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+    
+    <div class="navbar">
+        <h2>Blood Bank & Donation</h2>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="why_donate.html">Why Donate Blood</a>
+            <a href="https://www.google.com/maps/@21.2030614,79.075803,13z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D"target="_blank" class="map-btn">Find Blood Banks</a>
+            <a href="become_donor.html" id="bl">Become A Donor</a>
+            <a href="need_blood.html">Need Blood</a>
+            <a href="Contact.html">Contact Us</a>
+        </nav>
+    </div>
+    
+    <h1 style="margin-top: 30px;">Welcome to Blood Bank & Donor Tracker System</h1>
+
+    <div class="info-section">
+        <div class="info-box">
+            <h3>The Need for Blood</h3>
+
+            <ul>
+                <li><strong>Emergencies:</strong> Accident victims, surgeries, and trauma cases.</li>
+                <li><strong>Medical Treatments:</strong> Patients with <strong>anemia, cancer, or blood disorders</strong> need regular transfusions.</li>
+                <li><strong>Childbirth & Newborn Care:</strong> Mothers and infants often require blood during complications.</li>
+                <li><strong>Chronic Conditions:</strong> People with <strong>thalassemia or sickle cell disease</strong> need frequent donations.</li>
+            </ul>
+            
+            <p> <strong>Regular blood donation</strong> ensures a <strong>stable supply</strong> and helps save millions of lives every year. ??</p>
+            </p>
+        </div>
+        <div class="info-box">
+            <h3>Blood Donation Tips</h3>
+            <p>Blood Donation Tips</p>
+
+            <p> <strong>Before:</strong></p>
+           
+                Stay hydrated & eat iron-rich food.
+                Get 6-8 hours of sleep.
+                Avoid alcohol, smoking & fatty foods.
+           
+            <p><strong>During:</strong></p>
+                Stay relaxed & breathe calmly.
+                Clench & relax fist for smooth blood flow.
+                Inform staff if you feel dizzy or unwell.            
+            
+            <p> <strong>After:</strong></p>
+           
+                Drink fluids & eat a healthy snack.
+                Avoid heavy lifting & workouts for 24 hours.
+                Rest for 10-15 minutes & keep the bandage on.
+           
+            
+            <p> <strong>Donate regularly & save lives!</strong> </p>
+            
+        </div>
+        <div class="info-box">
+            <h3>Who You Could Help</h3>
+
+            <ul>
+                <li><strong>Accident Victims:</strong> Blood is crucial for trauma and emergency surgeries.</li>
+                <li><strong>Pregnant Women & Newborns:</strong> Blood is needed during complications in childbirth.</li>
+                <li><strong>Cancer Patients:</strong> Require frequent transfusions during chemotherapy.</li>
+                <li><strong>Chronic Disease Patients:</strong> People with thalassemia, sickle cell anemia, or hemophilia need regular donations.</li>
+                <li><strong>Surgeries & Transplants:</strong> Blood is vital during major operations and organ transplants.</li>
+            </ul>
+            
+            <p><strong>Your donation</strong> can save multiple lives and bring hope to families in need.</p>
+            </p>
+        </div>
+    </div>
+
+    <h2>Blood Donor Names</h2>
+    <div class="donor-section">
+        <div class="donor-card">
+            <img src="Profile.png" alt="Blood Donor">
+            <p><strong>Praney Shirulkar</strong></p>
+            <p>Blood Group: O+<br>Mobile No.: 999522205<br>Gender: Male<br>Age: 21<br>Address: Hisar</p>
+        </div>
+        <div class="donor-card">
+            <img src="Profile.png" alt="Blood Donor">
+            <p><strong>Yash Garad</strong></p>
+            <p>Blood Group: B+<br>Mobile No.: 9813912117<br>Gender: Female<br>Age: 44<br>Address: Bhiwani</p>
+        </div>
+        <div class="donor-card">
+            <img src="Profile.png" alt="Blood Donor">
+            <p><strong>Om Gawande</strong></p>
+            <p>Blood Group: B+<br>Mobile No.: 9294302345<br>Gender: Male<br>Age: 19<br>Address: Hisar</p>
+        </div>
+    </div>
+<div style="background-color: #07e3a8; border-radius: 16px;">
+    <h2>BLOOD GROUPS</h2>
+    <p style="line-height: 1.8; font-size: 30px; color: #000000;">
+        There are eight main blood groups, and knowing your type can be crucial in medical situations. 
+        Blood groups are classified into eight types based on the ABO system and the Rh factor.
+    </p>
+    
+    <p style="line-height: 1.8; font-size: 30px; color: #000000;">
+        <strong>A+ and A-:</strong> These blood types have the A antigen on red blood cells. 
+        A+ has the Rh factor, while A- does not. 
+        People with A+ can donate to A+ and AB+ recipients, while A- can donate to A+, A-, AB+, and AB-.
+    </p>
+    
+    <p style="line-height: 1.8; font-size: 30px; color: #000000;">
+        <strong>B+ and B-:</strong> These types have the <strong>B antigen</strong>. 
+        B+ individuals can donate to B+ and AB+ recipients, whereas B- can donate to B+, B-, AB+, and AB-. 
+        B- is rarer and more valuable for donations.
+    </p>
+    
+    <p style="line-height: 1.8; font-size: 30px; color: #000000;">
+        <strong>AB+ and AB-:</strong> AB blood types have both <strong>A and B antigens</strong>. 
+        AB+ is the <strong>universal recipient</strong>, meaning they can receive blood from any type. 
+        AB- can receive from all Rh-negative types but is rarer. 
+        AB plasma is universal and can be given to patients of any blood group.
+    </p>
+    
+    <p style="line-height: 1.8; font-size: 30px; color: #000000;">
+        <strong>O+ and O-:</strong> O blood types lack both A and B antigens. 
+        <strong>O+</strong> is the most common type and can donate to all positive blood types. 
+        <strong>O-</strong> is the <strong>universal donor</strong>, compatible with all blood groups, making it highly valuable in emergencies.
+    </p>
+    </div>
+    <br>
+    <img src="bloodgroup.png" alt="Blood Group" style="height: 300px; width: 500px;">
+
+    <h4>UNIVERSAL DONORS AND RECIPIENTS</h4>
+    <p>O-negative donors can give blood to anyone, while AB-positive recipients can receive any type.</p>
+    <a class="btn" href="donate_blood.html">Become a Donor</a>
+      <!-- Footer -->
+      <footer class="footer">
+        <p>TEAM DETAILS:</p>
+        <p>SAKSHI BANSOD-TEAM LEAD</p>
+        <p>LAKSHYA WALURKAR-TEAM MEMBER</p>
+    </footer>
+</body>
+</html>

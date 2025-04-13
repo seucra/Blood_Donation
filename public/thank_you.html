@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmation - Blood Bank</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #0c0a0a;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h2 {
+            margin: 0;
+            color: red;
+            font-weight: bold;
+        }
+
+        .navbar nav a {
+            color: black;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+        }
+
+        /* Hover Effect */
+        .navbar nav a:hover {
+            background: #ff6f61;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Active Page Styling */
+        .navbar nav a.active {
+            background: #e4210f;
+            color: white;
+        }
+
+        /* Confirmation Section */
+        .confirmation {
+            text-align: center;
+            padding: 60px 20px;
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .confirmation img {
+            max-width: 50%;
+            margin-top: 20px;
+            border-radius: 8px;
+            animation: zoomIn 1.2s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Footer */
+        .footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <h2>Blood Bank & Donation</h2>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="why_donate.html">Why Donate Blood</a>
+            <a href="https://www.google.com/maps/@21.2030614,79.075803,13z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D"target="_blank" class="map-btn">Find Blood Banks</a>
+            <a href="become_donor.html" id="bl">Become A Donor</a>
+            <a href="need_blood.html">Need Blood</a>
+            <a href="contact.html" class="active">Contact Us</a> <!-- Marked as active -->
+        </nav>
+    </div>
+
+    <!-- Registration Confirmation Message -->
+    <div class="confirmation">
+        <h1>Thank You for Registering!</h1>
+        <p>We appreciate your interest in blood donation.</p>
+        <p>We will contact you soon with more details.</p>
+        <img src="thank_you.png" alt="Thank You">
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>TEAM DETAILS:</p>
+        <p>SAKSHI BANSOD-TEAM LEAD</p>
+        <p>LAKSHYA WALURKAR-TEAM MEMBER</p>
+    </div>
+</body>
+</html>

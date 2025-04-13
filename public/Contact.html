@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Blood Bank & Donation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .navbar {
+            background: #e6e3e3;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 25px;
+        }
+
+        .navbar h2 {
+            margin: 0;
+            color: rgb(228, 22, 22);
+            font-size: 24px;
+        }
+
+        .navbar nav a {
+            color: rgb(15, 1, 1);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar nav a:hover {
+            background: white;
+            color: #e71717;
+        }
+
+        .navbar nav a.active {
+            background: #ef220f;
+            padding: 8px 14px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .contact-container {
+            width: 80%;
+            margin: 70px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            opacity: 0;
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+        .contact-form {
+            width: 55%;
+            animation: slideInLeft 1s ease-in-out forwards;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #512c2c;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #27486b;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        .contact-form button {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+
+        .contact-details {
+            width: 40%;
+            animation: slideInRight 1s ease-in-out forwards;
+        }
+
+        .contact-details a {
+            color: blue;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: darkblue;
+        }
+
+        .footer {
+            background: rgb(11, 11, 11);
+            margin: 30px;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 370px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>Blood Bank & Donation</h2>
+        <nav>
+            <a href="Home.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="why_donate.html">Why Donate Blood</a>
+            <a href="https://www.google.com/maps/@21.2030614,79.075803,13z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D"target="_blank" class="map-btn">Find Blood Banks</a>
+            <a href="become_donor.html" id="bl">Become A Donor</a>
+            <a href="need_blood.html">Need Blood</a>
+            <a href="Contact.html">Contact Us</a>
+        </nav>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form>
+                <label>Full Name:</label><br>
+                <input type="text"><br>
+                <label>Phone Number:</label><br>
+                <input type="text"><br>
+                <label>Email Address:</label><br>
+                <input type="email"><br>
+                <label>Message:</label><br>
+                <textarea></textarea><br>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-details">
+            <h3>Contact Details</h3>
+            <p><strong>Address:</strong> Delhi</p>
+            <p><strong>Contact Number:</strong> <a href="tel:9896423503">9896423503</a></p>
+            <p><strong>Email:</strong> <a href="mailto:mail@gmail.com">mail@gmail.com</a></p>
+        </div>
+    </div>
+
+   
+     <!-- Footer -->
+     <footer class="footer">
+        <p>TEAM DETAILS:</p>
+        <p>SAKSHI BANSOD-TEAM LEAD</p>
+        <p>LAKSHYA WALURKAR-TEAM MEMBER</p>
+    </footer>
+
+</body>
+</html>
